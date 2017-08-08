@@ -5,9 +5,9 @@ from django.utils import timezone
 class Post(models.Model):
 	author = models.ForeignKey('auth.user')
 	title = models.CharField(max_length=200)
-	text = TextField()
-	created_date = DateTimeField(default=timezone.now)
-	published_date = DateTimeField(blank=True, null=True)
+	text = models.TextField()
+	created_date = models.DateTimeField(default=timezone.now)
+	published_date = models.DateTimeField(blank=True, null=True)
 
 	def publish(self):
 		self.published_date = timezone.now()
